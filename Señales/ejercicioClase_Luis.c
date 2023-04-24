@@ -78,11 +78,13 @@ int main()
         kill(grandchild, SIGUSR1);
         pause();
         printf("hijo[%d]\n", getpid());
+        usleep(1000);
         kill(array[i - 1], SIGUSR1);
       }
       else
       {
-        printf("hijo[%d]\n", getpid());
+        pause();
+        printf("hijo[%d] - padre[%d]\n", getpid(), getppid());
         kill(getppid(), SIGUSR1);
       }
     }
